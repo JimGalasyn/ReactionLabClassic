@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactionDiffusionControlLib", "ReactionDiffusionControlLib\ReactionDiffusionControlLib.csproj", "{6A9F58EA-5DBF-4698-A4FF-03AEA7F80183}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactionDiffusionLib", "ReactionDiffusionLib\ReactionDiffusionLib.csproj", "{705EF8C4-C409-49E5-ADE5-929AF9DEA21E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactionDiffusionLab", "ReactionDiffusionLab\ReactionDiffusionLab.csproj", "{608A4382-0337-4E07-9C51-C083E90692D5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6A9F58EA-5DBF-4698-A4FF-03AEA7F80183}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A9F58EA-5DBF-4698-A4FF-03AEA7F80183}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A9F58EA-5DBF-4698-A4FF-03AEA7F80183}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A9F58EA-5DBF-4698-A4FF-03AEA7F80183}.Release|Any CPU.Build.0 = Release|Any CPU
+		{705EF8C4-C409-49E5-ADE5-929AF9DEA21E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{705EF8C4-C409-49E5-ADE5-929AF9DEA21E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{705EF8C4-C409-49E5-ADE5-929AF9DEA21E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{705EF8C4-C409-49E5-ADE5-929AF9DEA21E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{608A4382-0337-4E07-9C51-C083E90692D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{608A4382-0337-4E07-9C51-C083E90692D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{608A4382-0337-4E07-9C51-C083E90692D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{608A4382-0337-4E07-9C51-C083E90692D5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

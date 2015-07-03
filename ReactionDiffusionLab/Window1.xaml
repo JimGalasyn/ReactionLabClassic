@@ -1,0 +1,194 @@
+﻿<Window x:Class="ReactionDiffusionLab.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:ReactionDiffusionLab"
+    xmlns:rdc="clr-namespace:ReactionDiffusionControlLib;assembly=ReactionDiffusionControlLib"
+    Title="RD Test WPF" Height="600" Width="600">
+    <Grid>
+        <Grid.Resources>
+            <local:DoubleToStringConverter x:Key="doubleToStringConverter" />
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="375.589*" />
+            <ColumnDefinition Width="202.411*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="213*" />
+            <RowDefinition Height="49*" />
+        </Grid.RowDefinitions>
+
+        <rdc:ReactionDiffusionControl 
+            Name="_reactionDiffusionControl" 
+            Grid.Row="0" 
+            Grid.ColumnSpan="2" Width="400" Height="400"
+            IterationCompleted="reactionDiffusionControl_IterationCompleted"/>
+
+        <StackPanel Name="stackPanel1" Grid.Row="1" Margin="0" Orientation="Horizontal">
+            
+                <GroupBox Header="Reaction Parameters" >
+                    <StackPanel Orientation="Horizontal">
+                    <StackPanel Height="Auto" Name="stackPanel3" Width="Auto" Margin="3">
+                        <TextBlock 
+                    Name="textBlock1" 
+                    Height="Auto" 
+                    Width="Auto" 
+                    Text="{Binding ElementName=slider1, Path=Value, Converter={StaticResource doubleToStringConverter} }" 
+                    TextAlignment="Center" 
+                    FontFamily="Lucida" 
+                    FontSize="10" />
+                <Slider 
+                    Name="slider1" 
+                    Height="50" 
+                    Width="Auto" 
+                    Orientation="Vertical"
+                    Value="{Binding ElementName= _reactionDiffusionControl, Path=K1, Mode=TwoWay }"
+                    Minimum="{Binding ElementName= _reactionDiffusionControl, Path=K1Min, Mode=OneWay }"
+                    Maximum="{Binding ElementName= _reactionDiffusionControl, Path=K1Max, Mode=OneWay }"/>
+                <TextBlock 
+                    Text="K1" 
+                    TextAlignment="Center" 
+                    FontFamily="Lucida" 
+                    FontSize="10" />
+            </StackPanel>
+
+                    <StackPanel 
+                Name="stackPanel4" 
+                Height="Auto" 
+                Width="Auto" Margin="3">
+                        <TextBlock Height="Auto" Name="textBlock2" Width="Auto" Text="{Binding ElementName=slider2, Path=Value, Converter={StaticResource doubleToStringConverter} }" TextAlignment="Center" FontFamily="Lucida" FontSize="10" />
+                <Slider Name="slider2" 
+                        Height="50" 
+                        Width="Auto" 
+                        Orientation="Vertical"
+                        Value="{Binding ElementName= _reactionDiffusionControl, Path=W1, Mode=TwoWay }"
+                        Minimum="{Binding ElementName= _reactionDiffusionControl, Path=W1Min, Mode=OneWay }"
+                        Maximum="{Binding ElementName= _reactionDiffusionControl, Path=W1Max, Mode=OneWay }"
+                        SmallChange="0.01"/>
+                <TextBlock 
+                    Text="W1" 
+                    TextAlignment="Center" 
+                    FontFamily="Lucida" 
+                    FontSize="10" />
+            </StackPanel>
+
+                    <StackPanel 
+                Name="stackPanel5" 
+                Height="Auto" 
+                Width="Auto" Margin="3">
+                        <TextBlock 
+                    Name="textBlock3" 
+                    Height="Auto" 
+                    Width="Auto" 
+                    Text="{Binding ElementName=slider3, Path=Value, Converter={StaticResource doubleToStringConverter} }" 
+                    TextAlignment="Center" 
+                    FontFamily="Lucida" 
+                    FontSize="10" />
+                <Slider 
+                    Name="slider3" 
+                    Height="50" 
+                    Width="Auto" 
+                    Orientation="Vertical" 
+                    Value="{Binding ElementName= _reactionDiffusionControl, Path=K2, Mode=TwoWay }"
+                    Minimum="{Binding ElementName= _reactionDiffusionControl, Path=K2Min, Mode=OneWay }"
+                    Maximum="{Binding ElementName= _reactionDiffusionControl, Path=K2Max, Mode=OneWay }"/>
+                <TextBlock 
+                    Text="K2" 
+                    TextAlignment="Center" 
+                    FontFamily="Lucida" 
+                    FontSize="10" />
+            </StackPanel>
+
+                    <StackPanel 
+                Name="stackPanel6" 
+                Height="Auto" 
+                Width="Auto" Margin="3">
+                        <TextBlock 
+                    Name="textBlock4" 
+                    Height="Auto" 
+                    Width="Auto" 
+                    Text="{Binding ElementName=slider4, Path=Value, Converter={StaticResource doubleToStringConverter} }" 
+                    TextAlignment="Center" 
+                    FontFamily="Lucida" 
+                    FontSize="10" />
+                <Slider 
+                    Name="slider4" 
+                    Height="50" 
+                    Width="Auto" 
+                    Orientation="Vertical" 
+                    Value="{Binding ElementName= _reactionDiffusionControl, Path=W2, Mode=TwoWay }" 
+                    Minimum="{Binding ElementName= _reactionDiffusionControl, Path=W2Min, Mode=OneWay }"
+                    Maximum="{Binding ElementName= _reactionDiffusionControl, Path=W2Max, Mode=OneWay }"/>
+                <TextBlock 
+                    Text="W2" 
+                    TextAlignment="Center" 
+                    FontFamily="Lucida" 
+                    FontSize="10" />
+            </StackPanel>
+                    </StackPanel>
+                </GroupBox>
+
+            <GroupBox Header="Boundary Conditions" Height="Auto" Name="groupBox1" Width="Auto">
+                <StackPanel Height="Auto" Name="stackPanel7" Width="Auto">
+
+                    <ListBox x:Name="RadioButtonList" BorderThickness="0" Background="{x:Null}">
+                        <ListBox.ItemContainerStyle>
+                            <Style TargetType="{x:Type ListBoxItem}">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                                            <ContentPresenter/>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </ListBox.ItemContainerStyle>
+
+                        <ListBoxItem IsSelected="{Binding IsChecked, ElementName=rbUniform, Mode=OneWay}">
+                            <RadioButton x:Name="rbUniform" GroupName="Group" Checked="radioButton_Checked">Uniform</RadioButton>
+                        </ListBoxItem>
+
+                        <ListBoxItem IsSelected="{Binding IsChecked, ElementName=rbXGradient, Mode=OneWay}">
+                            <RadioButton x:Name="rbXGradient" GroupName="Group" Checked="radioButton_Checked">XGradient</RadioButton>
+                        </ListBoxItem>
+
+                        <ListBoxItem IsSelected="{Binding IsChecked, ElementName=rbYGradient, Mode=OneWay}">
+                            <RadioButton x:Name="rbYGradient" GroupName="Group" Checked="radioButton_Checked">YGradient</RadioButton>
+                        </ListBoxItem>
+
+                        <ListBoxItem IsSelected="{Binding IsChecked, ElementName=rbXSine, Mode=OneWay}">
+                            <RadioButton x:Name="rbXSine" GroupName="Group" Checked="radioButton_Checked">XSine</RadioButton>
+                        </ListBoxItem>
+
+                        <ListBoxItem IsSelected="{Binding IsChecked, ElementName=rbYSine, Mode=OneWay}">
+                            <RadioButton x:Name="rbYSine" GroupName="Group" Checked="radioButton_Checked">YSine</RadioButton>
+                        </ListBoxItem>
+
+                        <ListBoxItem IsSelected="{Binding IsChecked, ElementName=rbXRamp, Mode=OneWay}">
+                            <RadioButton x:Name="rbXRamp" GroupName="Group" Checked="radioButton_Checked">XRamp</RadioButton>
+                        </ListBoxItem>
+
+                        <ListBoxItem IsSelected="{Binding IsChecked, ElementName=rbYRamp, Mode=OneWay}">
+                            <RadioButton x:Name="rbYRamp" GroupName="Group" Checked="radioButton_Checked">YRamp</RadioButton>
+                        </ListBoxItem>
+                    </ListBox>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Header="Frame Time" Height="Auto" Name="groupBox2" Width="Auto">
+                <TextBlock Height="21" Name="textBlock6" Width="105" /></GroupBox>
+        </StackPanel>
+
+        <StackPanel 
+            Name="stackPanel2" 
+            Grid.Column="1" 
+            Grid.Row="1" 
+            Margin="0" 
+            Orientation="Horizontal" FlowDirection="RightToLeft">
+            <Button 
+                Name="button2" 
+                Height="22.5" 
+                Width="75" 
+                Click="stopButton_Click">Stop</Button>
+            <Button Height="22.5" Name="startButton" Width="75" Click="startButton_Click">Start</Button>
+        </StackPanel>
+    </Grid>
+</Window>
